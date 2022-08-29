@@ -5,9 +5,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { errorHandler } from './errors.js'
 import cors from 'cors'
-
+import { PORT } from './config.js'
 const app = express()
-const port = 8080;
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -29,7 +28,7 @@ for (const file of routesFiles) {
 
 app.use(errorHandler);
 
-app.listen(port, async () => {
+app.listen(PORT, async () => {
     console.log("Server is running.");
     await db.createTable();
 })
