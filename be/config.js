@@ -15,3 +15,5 @@ export const upload = multer({
     storage: storage,
     limits: 1000000,
 })
+
+export const PORT = 8080
