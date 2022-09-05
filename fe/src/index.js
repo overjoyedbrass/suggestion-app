@@ -6,10 +6,10 @@ import App from './App';
 import { css, Global } from '@emotion/react';
 import { store } from './app/store';
 import { Provider as ReduxProvider } from 'react-redux'
+import { theme } from './theme.js'
 
-const GlobalStyle = ({children}) => {
+const GlobalStyle = ({ }) => {
     return (
-        <>
         <Global
             styles={css`
                 ::-webkit-scrollbar {
@@ -20,20 +20,21 @@ const GlobalStyle = ({children}) => {
 
                 ::-webkit-scrollbar-thumb {
                     background-color: rgb(144, 205, 244);
-                    border-radius: 10px;}
-                `}
+                    border-radius: 10px;
+                }			
+                `
+				}
         />
-        { children }
-        </>
     )
 }
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <ChakraProvider>
-        <GlobalStyle>
-            <ReduxProvider store={store}>
-                <App />
-            </ReduxProvider>
-        </GlobalStyle>
+    <ChakraProvider theme={theme}>
+        <GlobalStyle />
+        <ReduxProvider store={store}>
+            <App />
+        </ReduxProvider>
     </ChakraProvider>
 );

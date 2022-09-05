@@ -1,5 +1,4 @@
-import { Flex } from '@chakra-ui/react';
-import './App.css';
+import { Flex, useColorMode } from '@chakra-ui/react';
 import { SuggestionForm } from './components/Suggestions/SuggestionForm'
 import { Navigation } from './components/Navbar/Navbar.js'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
@@ -11,6 +10,8 @@ import { ContactPage } from './components/InfoPages/ContactPage';
 
 
 function App(){
+    const { colorMode } = useColorMode()
+    console.log(colorMode)
     return (
         <Flex 
             direction='column' 

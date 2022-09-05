@@ -45,7 +45,7 @@ import { useNavigate } from 'react-router-dom';
                     ml={{ base: -2 }}
                     display={{ base: 'flex', md: 'none' }}>
                     <IconButton
-                        onClick={onToggle}
+                        onClick={ onToggle }
                         icon={
                         isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
                         }
@@ -103,7 +103,7 @@ const DesktopNav = () => {
                                     textDecoration: 'none',
                                     color: linkHoverColor,
                             }}>
-                        {navItem.label}
+                                {navItem.label}
                             </Link>
                         </PopoverTrigger>
     

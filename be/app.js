@@ -14,12 +14,14 @@ const __dirname = path.dirname(__filename)
 const routesPath = path.join(__dirname, 'routes')
 const routesFiles = fs.readdirSync(routesPath).filter(file => file.endsWith('.js'));
 
-app.get("/", async (req, res) => {
+app.get("/", async (_req, res) => {
     res.send("This is root.")
 })
 
 app.use(cors())
+
 app.use(express.static('uploads'))
+
 for (const file of routesFiles) {
     var { router } = await import(`./routes/${file}`);
     const [route, _] = file.split('.')
